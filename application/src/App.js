@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-function App() {
+// Authendicaiton Module
+import Register from "./Component/Authendication/Register";
+import Login from "./Component/Authendication/Login";
+
+// Route import
+import Template from "./Component/Template";
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+
+      <Router>
+        <Routes>
+
+          {/* Authendication */}
+          <Route path="/register" element={<Register />}/>
+          <Route path="/login" element={<Login />}/>
+
+          <Route path="/" element={<Template />}/>
+        </Routes>
+      </Router>
+
+    </React.Fragment>
   );
 }
-
-export default App;
